@@ -1,0 +1,97 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main {
+  margin: 100px auto;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 5px 5px 25px 5px rgb(116, 115, 115);
+  max-width: 450px;
+  width: 450px;
+  padding: 10px;
+}
+
+.row--value {
+  width: 100%;
+  text-align: right;
+  font-size: 70px;
+  min-height: 80px;
+}
+.row--buttons {
+  margin-top: 7px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  -moz-column-gap: 35px;
+       column-gap: 35px;
+  row-gap: 6px;
+}
+.row--buttons:first-of-type {
+  margin-top: 12px;
+}
+.row--buttons-last {
+  margin-top: 7px;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr;
+  -moz-column-gap: 35px;
+       column-gap: 35px;
+  row-gap: 6px;
+}
+
+.btn {
+  height: 74px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+.btn--zero {
+  border-radius: 50px !important;
+  justify-content: start !important;
+  padding: 25px;
+}
+.btn--dot, .btn--equal {
+  border-radius: 50%;
+  width: 80px;
+}
+
+.gray-color {
+  background: rgb(164, 163, 163) !important;
+  color: black !important;
+  transition-duration: 0.2s;
+}
+.gray-color:hover, .gray-color:active, .gray-color:focus {
+  cursor: pointer;
+  background: black !important;
+  color: white !important;
+  border: 3px solid white;
+}
+
+.gray-bold-color {
+  background: rgb(79, 77, 77) !important;
+  color: white !important;
+  transition-duration: 0.2s;
+}
+.gray-bold-color:hover, .gray-bold-color:active, .gray-bold-color:focus {
+  cursor: pointer;
+  background: black !important;
+  color: white !important;
+  border: 3px solid white;
+}
+
+.red-color {
+  background: rgb(233, 43, 84) !important;
+  transition-duration: 0.2s;
+}
+.red-color:hover, .red-color:active, .red-color:focus {
+  cursor: pointer;
+  background: white !important;
+  color: rgb(233, 43, 84) !important;
+}/*# sourceMappingURL=main.css.map */
