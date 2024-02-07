@@ -30,6 +30,8 @@ function lastOfList() {
     if (result.length == 0) {
         return "NaN";
     } 
+    let last = 
+    if (typeof)
     return String(Number(result[result.length - 1]));
 }
 
@@ -78,6 +80,23 @@ signBtn.addEventListener("click", function() {
     console.log(result);
 });
 
+dotBtn.addEventListener("click", function() {
+    // For Zero in display
+    let val = getFromDisplay();
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last != "NaN" && !last.includes(".")) {
+        last += ".";
+        assignListLast(last);
+        assignDisplay(last);
+        // if zero in display
+    } else if (val == "0") {
+        result.push("0.");
+        assignDisplay("0.");
+    }
+    console.log(result);
+});
+
 modBtn.addEventListener("click", function() {
     // For Zero in display
     let val = getFromDisplay();
@@ -93,11 +112,29 @@ modBtn.addEventListener("click", function() {
     console.log(result);
 });
 
+divBtn.addEventListener("click", function(){
+    // For Zero in display
+    let val = getFromDisplay();
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last != "NaN") {
+        result.push("/");
+    // if zero in display
+    } else if (val == "0") {
+        result.push("0");
+        result.push("/");
+    }
+    console.log(result);
+});
+
 equalBtn.addEventListener("click", function(){
     let last = lastOfList();
     // if last of list is not number or doesn't exist
     if (last != "NaN") {
         let calc = String(eval(result.join("")));
+        if (String(calc).length > 10) {
+            calc = calc.slice(0, 10);
+        }
         result = [calc];
         assignDisplay(calc);
     }
