@@ -71,7 +71,7 @@
   cursor: pointer;
   background: black !important;
   color: white !important;
-  border: 3px solid white;
+  border: 1px solid white;
 }
 
 .gray-bold-color {
@@ -83,7 +83,7 @@
   cursor: pointer;
   background: black !important;
   color: white !important;
-  border: 3px solid white;
+  border: 1px solid white;
 }
 
 .red-color {

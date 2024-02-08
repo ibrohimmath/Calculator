@@ -30,9 +30,13 @@ function lastOfList() {
     if (result.length == 0) {
         return "NaN";
     } 
-    let last = 
-    if (typeof)
-    return String(Number(result[result.length - 1]));
+    const last = result[result.length - 1];
+    if (last == "%" || last == "/" || last == "*" || last == "+" || last == "-") {
+        return "NaN";
+    } else if (Number(last) != "NaN" || Number(last.slice(0, -1)) != "NaN" && last.length > 1) {
+        return last;
+    }
+    return "NaN";
 }
 
 // assign to the last of result list
@@ -127,6 +131,51 @@ divBtn.addEventListener("click", function(){
     console.log(result);
 });
 
+multBtn.addEventListener("click", function(){
+    // For Zero in display
+    let val = getFromDisplay();
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last != "NaN") {
+        result.push("*");
+    // if zero in display
+    } else if (val == "0") {
+        result.push("0");
+        result.push("*");
+    }
+    console.log(result);
+});
+
+subtBtn.addEventListener("click", function(){
+    // For Zero in display
+    let val = getFromDisplay();
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last != "NaN") {
+        result.push("-");
+    // if zero in display
+    } else if (val == "0") {
+        result.push("0");
+        result.push("-");
+    }
+    console.log(result);
+});
+
+addBtn.addEventListener("click", function(){
+    // For Zero in display
+    let val = getFromDisplay();
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last != "NaN") {
+        result.push("+");
+    // if zero in display
+    } else if (val == "0") {
+        result.push("0");
+        result.push("+");
+    }
+    console.log(result);
+});
+
 equalBtn.addEventListener("click", function(){
     let last = lastOfList();
     // if last of list is not number or doesn't exist
@@ -150,7 +199,10 @@ zero.addEventListener("click", function() {
     } else {
     // Numbers over 16 digits overflow in display
         if (last.length < 16){
-            last = String(Number(last) * 10);
+            if (!last.includes('.')) {
+                let x = Number(last);
+                last = String(10 * x);
+            }
         }
     // Change last of list
         assignListLast(last);
@@ -169,9 +221,13 @@ one.addEventListener("click", function() {
     } else {
     // Numbers over 16 digits overflow in display
         if (last.length < 16){
-            let x = Number(last);
-            if (x < 0) last = String(10 * x - 1);
-            else last = String(10 * x + 1);
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 2);
+                else last = String(10 * x + 2);    
+            } else {
+                last += '1';
+            }
         }
     // Change last of list
         assignListLast(last);
@@ -190,9 +246,13 @@ two.addEventListener("click", function() {
     } else {
     // Numbers over 16 digits overflow in display
         if (last.length < 16){
-            let x = Number(last);
-            if (x < 0) last = String(10 * x - 2);
-            else last = String(10 * x + 2);
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 2);
+                else last = String(10 * x + 2);    
+            } else {
+                last += '2';
+            }
         }
     // Change last of list
         assignListLast(last);
@@ -211,9 +271,163 @@ three.addEventListener("click", function() {
     } else {
     // Numbers over 16 digits overflow in display
         if (last.length < 16){
-            let x = Number(last);
-            if (x < 0) last = String(10 * x - 3);
-            else last = String(10 * x + 3);
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 3);
+                else last = String(10 * x + 3);    
+            } else {
+                last += '3';
+            }
+        }
+    // Change last of list
+        assignListLast(last);
+    // Change display number appearance because of event
+        assignDisplay(last);
+    }
+    console.log(result);
+});
+
+four.addEventListener("click", function() {
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last == "NaN") {
+        result.push("4");
+        assignDisplay("4");
+    } else {
+    // Numbers over 16 digits overflow in display
+        if (last.length < 16){
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 4);
+                else last = String(10 * x + 4);    
+            } else {
+                last += '4';
+            }
+        }
+    // Change last of list
+        assignListLast(last);
+    // Change display number appearance because of event
+        assignDisplay(last);
+    }
+    console.log(result);
+});
+
+five.addEventListener("click", function() {
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last == "NaN") {
+        result.push("5");
+        assignDisplay("5");
+    } else {
+    // Numbers over 16 digits overflow in display
+        if (last.length < 16){
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 5);
+                else last = String(10 * x + 5);    
+            } else {
+                last += '5';
+            }
+        }
+    // Change last of list
+        assignListLast(last);
+    // Change display number appearance because of event
+        assignDisplay(last);
+    }
+    console.log(result);
+});
+
+six.addEventListener("click", function() {
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last == "NaN") {
+        result.push("6");
+        assignDisplay("6");
+    } else {
+    // Numbers over 16 digits overflow in display
+        if (last.length < 16){
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 6);
+                else last = String(10 * x + 6);    
+            } else {
+                last += '6';
+            }
+        }
+    // Change last of list
+        assignListLast(last);
+    // Change display number appearance because of event
+        assignDisplay(last);
+    }
+    console.log(result);
+});
+
+seven.addEventListener("click", function() {
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last == "NaN") {
+        result.push("7");
+        assignDisplay("7");
+    } else {
+    // Numbers over 16 digits overflow in display
+        if (last.length < 16){
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 7);
+                else last = String(10 * x + 7);    
+            } else {
+                last += '7';
+            }
+        }
+    // Change last of list
+        assignListLast(last);
+    // Change display number appearance because of event
+        assignDisplay(last);
+    }
+    console.log(result);
+});
+
+eight.addEventListener("click", function() {
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last == "NaN") {
+        result.push("8");
+        assignDisplay("8");
+    } else {
+    // Numbers over 16 digits overflow in display
+        if (last.length < 16){
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 8);
+                else last = String(10 * x + 8);    
+            } else {
+                last += '8';
+            }
+        }
+    // Change last of list
+        assignListLast(last);
+    // Change display number appearance because of event
+        assignDisplay(last);
+    }
+    console.log(result);
+});
+
+nine.addEventListener("click", function() {
+    let last = lastOfList();
+    // if last of list is not number or doesn't exist
+    if (last == "NaN") {
+        result.push("9");
+        assignDisplay("9");
+    } else {
+    // Numbers over 16 digits overflow in display
+        if (last.length < 16){
+            if (!last.includes('.')) {
+                let x = Number(last);
+                if (x < 0) last = String(10 * x - 9);
+                else last = String(10 * x + 9);    
+            } else {
+                last += '9';
+            }
         }
     // Change last of list
         assignListLast(last);
